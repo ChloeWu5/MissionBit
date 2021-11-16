@@ -9,7 +9,7 @@
 #if trys run out, print "you lose!"
 #if word == correct, print "you win!"
 
-words = ["barnacle,", "automatic", "equation", "conscious", "willpower", "diplomat", "computing"]
+words = ["barnacle,", "automatic", "excessive", "conscious", "willpower", "diplomat", "computing"]
 
 word_length = 0
 
