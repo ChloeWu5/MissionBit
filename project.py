@@ -15,9 +15,10 @@ words = ["barnacle,", "automatic", "excessive", "conscious", "willpower", "diplo
 
 word = random.choice(words)
 print(word)
-word_length = word.count()
-print(word_length)
 guess = input()
+word_length = word.count(guess)
+print(word_length)
+
 lives = 6
 
 for letter in word:
