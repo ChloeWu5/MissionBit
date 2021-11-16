@@ -15,4 +15,16 @@ words = ["barnacle,", "automatic", "excessive", "conscious", "willpower", "diplo
 
 word = random.choice(words)
 print(word)
+word_length = word.count()
+print(word_length)
+guess = input()
+lives = 6
+
+for letter in word:
+  word.count(guess)
+  if guess == letter:
+    print(guess)
+  else:
+    print("_")
+
 
