@@ -1,11 +1,23 @@
 import random
 
-# If the letter in the index in ‘automatic’ is equal to the index in list, we replace the index in list with that letter
+#project hangman
+
+#create list of words
+#pick a random word from that list
+#print underscores per letter in word
+#at all times: show amount of attempts left
+#if input is true, underscore(s) will change into letter
+#if word is true, change all underscores to word
+#if trys run out, print "you lose!"
+#if letter not equal to letters in word, trys -1, print "try again!"
+#if word == correct, print "you win!"
 
 words = [
     "barnacle", "automatic", "excessive", "conscious", "willpower", "diplomat",
     "computing", "enigmatic", "telescope"
 ]
+
+# Hello, tomas here!
 
 word = random.choice(words)
 print(word)
@@ -23,27 +35,16 @@ def print_word(word, guessed):
 
 
 while lives > 0:
-  print('You have ' + str(lives) + ' Lives Left.')
+  print('You have ' + str(lives) + ' Lives Left')
   print(print_word(word, guessed))
-  guess = input('Pick a Letter: ')
-  
+  guess = input('Pick a Letter:')
   if guess in guessed:
     print("You've already tried that.")
-    print("Guessed:", guessed)
   elif guess in word:
-    print("You've guessed right!")
+    print("You've guessed Right!")
     guessed.append(guess)
-    print("Guessed:", guessed)
   else:
-    print("You've guessed wrong!")
+    print("You've guessed Wrong!")
     lives = lives - 1
     guessed.append(guess)
-    print("Guessed:", guessed)
 
-  if print_word(word, guessed).count("_") == 0:
-    print("Correct, the word was", word + ".")
-    break
-
-if lives == 0:
-  print('You have ' + str(lives) + ' Lives Left.')
-  print("Incorrect, the word was", word + ".")

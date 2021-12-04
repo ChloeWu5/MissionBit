@@ -22,41 +22,63 @@ print(word)
 guess = input()
 
 def test(word, guess):
+  # word="conscious", guess="conscious"
   print("_")
   guessed = []
   line = []
   lives = 6
-  
-  for letter in word:
-    line.append("_")
-    print(line)
 
-    if guess == letter:
+  for i in range(len(word)):
+    line.append("_")
+
+  for letter in word:
+    print(line)
+    index = 0
+    
+    # Idea: Start by comparing each letter of word to each letter of guess
+    # Later: Make order not matter.
+    
+    # Problem: conscious is a full word and letter is only 1 letter
+
+    while guess != letter: 
+        print(guess)
+        lives = lives - 1
+        print("Lives:", lives)
+        guessed.append(guess)
+        print("Guessed:", guessed)
+        print("Try again!")
+        guess = input() 
+        # Move out of for loop. Wrap all inside while loop
+        
+    
+    if guess in letter:
+       #guess="conscious", letter="c"
+       print(guess)
+       index = word.index(guess)
        print("Lives:", lives)
        guessed.append(guess)
        print("Guessed:", guessed)
        guess = input()
- 
-    if guess != letter:
-      print("Lives: ", lives)
-      lives = lives - 1
-      guessed.append(guess)
-      print("Guessed:", guessed)
-      guess = input()
 
-      if lives == 0:
+    if lives == 0:
+      print("Lives:", lives)
+      print("You lose! The word was " + word + ". ")
+      break 
+
+    if guess == word:
         print("Lives:", lives)
-        print("You lose! The word was " + word + ". ")
-        break    
-  
-  if guess == letter in word:
-    #line[] = guess
-    word.replace(guess)
+        print("Correct! You win!")
+        break
 
-  if guess == word:
-    print("You win!")
-  
-  if guess == guessed.count(guess):
-    print("You've already tried that.")
+    if guess in guessed:
+        print("You've already tried that.")
+
+  if guess == letter in word:
+    word.replace(guess)
+    print(index)
+    # for i in line:
+    #   line[i] = index
+    #print(index)
 
 test(word, guess)
+
