@@ -3,9 +3,7 @@ import random
 # If the letter in the index in ‘automatic’ is equal to the index in list, we replace the index in list with that letter
 
 words = [
-    "barnacle", "automatic", "excessive", "conscious", "willpower", "diplomat",
-    "computing", "enigmatic", "telescope"
-]
+    "barnacle", "automatic", "excessive", "conscious", "willpower", "diplomat", "computing", "enigmatic", "telescope"]
 
 word = random.choice(words)
 print(word)
@@ -21,7 +19,6 @@ def print_word(word, guessed):
       output_word += '_'
   return output_word
 
-
 while lives > 0:
   print('You have ' + str(lives) + ' Lives Left.')
   print(print_word(word, guessed))
@@ -31,11 +28,11 @@ while lives > 0:
     print("You've already tried that.")
     print("Guessed:", guessed)
   elif guess in word:
-    print("You've guessed right!")
+    print("You guessed correctly!")
     guessed.append(guess)
     print("Guessed:", guessed)
   else:
-    print("You've guessed wrong!")
+    print("You guessed incorrectly.")
     lives = lives - 1
     guessed.append(guess)
     print("Guessed:", guessed)
