@@ -37,7 +37,7 @@ while lives > 0:
     guessed.append(guess)
     print("Guessed:", guessed)
 
-  if print_word(word, guessed).count("_") == 0:
+  if word.count("_") == 0:
     print("Correct, the word was", word + ".")
     break
 
