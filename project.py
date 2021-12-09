@@ -50,18 +50,24 @@ def test(word):
         print(line)  # Here, line could be "a__le" or "____" or "apple"
         return line
     # Let user guess until lives run out
+    # "a" in "apples"
+    # "pple" in "apples"
     while lives > 0:
-        guess = input()
+        guess = input()  # Input might be "apple". Cut off 1st letter
+        #"apples" -> "a"
         line = print_line()
         guessed.append(guess)
         if guess in word:
             print("Correct!")
+        elif guess == word:
+            print("yay")
+            break
         else:
             print("No, try again.")
             lives = lives - 1
             print("Lives:", lives)
         if line == word:
-            print("yay")
+            print("Yay")
             break
 
 
