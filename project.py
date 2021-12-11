@@ -15,13 +15,11 @@ import random
 
 words = [
     "barnacle", "automatic", "excessive", "conscious", "willpower", "diplomat",
-    "computing", "enigmatic", "telescope"
+    "computing", "enigmatic", "telescope", "malapropism", "cantle", "regnant",
+    "clerisy", "ostensible", "syntactic", "allocate", "momentous", "evanescent", "sagacity", "anecdote", "rancorous", "orator", "ephemeral"
 ]
 
-#word = random.choice(words)
-word = "apples"
-print(word)
-
+word = random.choice(words)
 
 
 def test(word):
@@ -32,12 +30,6 @@ def test(word):
 
     lives = 6
 
-    def add_numbers(a, b):
-        summ = a + b
-        return summ
-
-    d = add_numbers(1, 2)
-
     def print_line():
         line = ''
         for letter in word:
@@ -47,30 +39,32 @@ def test(word):
                 line += letter
             else:
                 line += '_'
-        print(line)  # Here, line could be "a__le" or "____" or "apple"
+        print(line)
         return line
+
     # Let user guess until lives run out
     # "a" in "apples"
     # "pple" in "apples"
     while lives > 0:
-        guess = input()  # Input might be "apple". Cut off 1st letter
-        #"apples" -> "a"
+        guess = input("Pick a letter: ")
         line = print_line()
         guessed.append(guess)
+        print("Guessed:", guessed)
+        if guess in guessed:
+            print("You've already tried that.")
         if guess in word:
             print("Correct!")
-        elif guess == word:
-            print("yay")
-            break
+            print("Lives:", lives)
         else:
-            print("No, try again.")
+            print("Incorrect, try again.")
             lives = lives - 1
             print("Lives:", lives)
         if line == word:
-            print("Yay")
+            print("Congrats, you won!")
             break
 
-
+    if lives == 0:
+        print("You lose, the word was", word + ".")
 
     # "some_string"  # This is just a "list" of characters
     # 123 in [100, 200, 300]
@@ -81,54 +75,5 @@ def test(word):
     # Can we rewrite this a bit?
     # Human form: Is the character the person typed lin the word
 
-    """
-      # Every time: letter = "e"
-
-      # word:      apple
-      # Beginning: _____
-      # Geuss l:   ___l_
-      # Guess a:   a__l_
-      # Guess p:   appl_
-
-      #
-
-
-
-    while lives > 0:
-            if guess == letter:  # problem: letter is always last letter of word
-                  print(guess)
-                  print("Lives:", lives)
-                  guessed.append(guess)
-                  print("Guessed:", guessed)
-                  guess = input()
-
-
-     elif guess != letter:
-  
-               print(guess)
-                  lives = lives - 1
-                  print("Lives:", lives)
-                  guessed.append(guess)
-                  print("Guessed:", guessed)
-                  print("Try again!")
-                  guess = input()
- 
-                # Move out of for loop. Wrap all inside while loop
-
-
-       # if guess in guessed:
-           #print("You've already tried that.")
-
-            if guess == word:
-                  print("Lives:", lives)
-                  print("Correct! You win!")
-                  break
-
-            if lives == 0:
-                  print("Lives:", lives)
-                  print("You lose! The word was " + word + ". ")
-                  break
-
-    """
 
 test(word)
