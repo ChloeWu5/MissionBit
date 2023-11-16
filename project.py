@@ -72,8 +72,5 @@ def test(word):
     # "a" in ["p", "l"]
     # "a" in ["p", "a", "l"]
 
-    # Can we rewrite this a bit?
-    # Human form: Is the character the person typed lin the word
-
 
 test(word)
