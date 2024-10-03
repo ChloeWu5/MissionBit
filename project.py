@@ -22,13 +22,14 @@ words = [
 word = random.choice(words)
 
 
-def test(word):
-    guessed = []
-    # 1st time: guessed = ["a"]
-    # 2st time: guessed = ["a", "l"]
-    # 3st time: guessed = ["a", "l", "e"]
+def hangman(word):
+    guessed = set()
+    # 1st time: guessed = {"a"}
+    # 2st time: guessed = {"a", "l"}
+    # 3st time: guessed = {"a", "l", "e"}
 
     lives = 6
+    #starting number of lives
 
     def print_line():
         line = ''
@@ -48,29 +49,22 @@ def test(word):
     while lives > 0:
         guess = input("Pick a letter: ")
         line = print_line()
-        guessed.append(guess)
-        print("Guessed:", guessed)
+        
         if guess in guessed:
             print("You've already tried that.")
-        if guess in word:
+        elif guess in word:
             print("Correct!")
-            print("Lives:", lives)
         else:
             print("Incorrect, try again.")
-            lives = lives - 1
-            print("Lives:", lives)
+            lives -= 1
         if line == word:
             print("Congrats, you won!")
             break
+        guessed.add(guess)
+        print("Guessed:", guessed)
+        print("Lives:", lives)
 
     if lives == 0:
-        print("You lose, the word was", word + ".")
+        print(f"You lose, the word was {word}.")
 
-    # "some_string"  # This is just a "list" of characters
-    # 123 in [100, 200, 300]
-    # 123 in [100, 123]
-    # "a" in ["p", "l"]
-    # "a" in ["p", "a", "l"]
-
-
-test(word)
+hangman(word)
