@@ -34,9 +34,7 @@ def hangman(word):
     def print_line():
         line = ''
         for letter in word:
-            if guess == letter:
-                line += letter
-            elif letter in guessed:
+            if guess == letter or letter in guessed:
                 line += letter
             else:
                 line += '_'
